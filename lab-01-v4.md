@@ -1,4 +1,3 @@
- /home/claude/lab01_tasks.md << 'EOF'
 ---
 **Subject:** Instrumentation II | **Lab:** LAB 01
 **Title:** Blink, Button, Bright: Learning Digital and Analog Control with Arduino UNO
