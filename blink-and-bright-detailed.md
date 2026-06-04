@@ -1,5 +1,5 @@
 # Instrumentation II
-## LAB 01 — From Pins to Sensors: Building a Complete Sensing and Control System
+## LAB 01 — From Pins to Sensors: Building a Complete Sensing and Control System -Detailed version
 
 ---
 
