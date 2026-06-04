@@ -1,7 +1,17 @@
-**Subject:** Instrumentation II | **Lab:** LAB 01
-**Title:** Blink, Button, Bright: Learning Digital and Analog Control with Arduino UNO
-**Hardware:** Arduino UNO, 3× LEDs (red, yellow, green), 3× 220Ω resistors, 1× potentiometer (10kΩ), 1× push button, 2× 10kΩ resistors, Breadboard, Jumper Wires
-**Software:** Arduino IDE 1.8.x or 2.x
+# Instrumentation II
+## LAB 01 — From Pins to Sensors: Building a Complete Sensing and Control System -Shorter version
+
+---
+
+| | |
+|---|---|
+| **Subject** | Instrumentation II |
+| **Lab** | LAB 01 |
+| **Title** | From Pins to Sensors: Building a Complete Sensing and Control System |
+| **Level** | Bachelor of Engineering |
+| **Prerequisites** | Basic electronics (Ohm's Law, voltage divider), Basic C/C++ programming concepts |
+| **Hardware** | Arduino UNO, Potentiometer, LED (with 220 Ω resistor), LDR, Push Button, LM35, 10 kΩ resistors (×2), Breadboard, Jumper Wires |
+| **Software** | Arduino IDE 1.8.x or 2.x |
 
 ---
 
