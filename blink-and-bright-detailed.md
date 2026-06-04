@@ -12,6 +12,7 @@
 | **Prerequisites** | Basic electronics (Ohm's Law, voltage divider), Basic C/C++ programming concepts |
 | **Hardware** | Arduino UNO, Potentiometer, LED (with 220 Ω resistor), LDR, Push Button, LM35, 10 kΩ resistors (×2), Breadboard, Jumper Wires |
 | **Software** | Arduino IDE 1.8.x or 2.x |
+| **Author** | Er. Rammani Acharya|
 
 ---
 
@@ -37,7 +38,7 @@ Read this section completely before touching any component or connecting any wir
 
 ---
 
-**Analog pins A0 through A5 accept input voltages strictly between 0V and 5V.** The ATmega328P's internal ADC is designed for this range. A voltage even slightly above 5V — from a sensor powered by a different supply, or from two voltage sources accidentally interacting in the circuit — can damage the ADC permanently. The damage may not manifest immediately as a dead pin; instead, the affected pin may give systematically incorrect readings that are difficult to trace. In this lab, all sensors are powered from the Arduino's own 5V pin, so this risk is low — but it is worth understanding before you work with sensors that have their own power supplies in future projects.
+**Analog pins A0 through A5 and digital pins D0 through D13 accept input voltages strictly between 0V and 5V.** The ATmega328P's internal ADC is designed for this range. A voltage even slightly above 5V — from a sensor powered by a different supply, or from two voltage sources accidentally interacting in the circuit — can damage the ADC permanently. The damage may not manifest immediately as a dead pin; instead, the affected pin may give systematically incorrect readings that are difficult to trace. In this lab, all sensors are powered from the Arduino's own 5V pin, so this risk is low — but it is worth understanding before you work with sensors that have their own power supplies in future projects.
 
 ---
 
@@ -46,6 +47,10 @@ Read this section completely before touching any component or connecting any wir
 ---
 
 **If anything smells like burning or a component becomes unexpectedly hot, disconnect immediately.** A burning smell during a lab session almost always means current is flowing somewhere it should not — through a reversed component, through a short circuit, or through a component operating far outside its ratings. The correct response is to remove the USB cable immediately, wait for everything to cool, then diagnose the circuit with the power off. Do not attempt to diagnose a live circuit that smells wrong. Report any damaged components to the lab instructor.
+
+---
+
+**If you want to know about the usage of specific functions, functions of specific pins or detailed error messages, you can refer to Arduino's official documentation page.** Refering to the documentation provides direct knowledge from the creators in great detatil. Here is the link to the documentation page of Arduino uno R3, the version we are using for this lab. [Arduinodocs](https://docs.arduino.cc/hardware/uno-rev3/)
 
 ---
 
@@ -317,7 +322,7 @@ The numbers change randomly on every reading. This is the expected behavior of a
 
 ### Task 1.2 — Control the Built-in LED
 
-**Objective:** Confirm the board works and introduce `pinMode()`, `digitalWrite()`, and `delay()` in their simplest form. No external components are needed — the Arduino UNO has an LED built onto the board, connected to digital pin D13 through a resistor.
+**Objective:** Confirm the board works and introduce `pinMode()`, `digitalWrite()`, and `delay()` in their simplest form. No external components are needed — the Arduino UNO has an LED built onto the board, connected to digital pin D13 through a resistor. Note that it is a good programming practice to declare pin numbers as const variable at top level rather than hardcoding them inside pinMode. 
 
 ```cpp
 // Task 1.2 — Blinking the built-in LED on pin D13.
