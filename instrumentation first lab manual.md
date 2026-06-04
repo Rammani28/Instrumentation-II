@@ -1,4 +1,3 @@
-cat > /home/claude/lab01_part1.md << 'ENDOFFILE'
 # Instrumentation II
 ## LAB 01 — From Pins to Sensors: Building a Complete Sensing and Control System
 
@@ -139,18 +138,6 @@ void loop() {
 | `'pinMode' was not declared` | Sketch structure is broken | Ensure code is inside `setup()` or `loop()` |
 | `Board at COMX not found` | Wrong port or board not connected | Check `Tools → Port` and USB connection |
 | `stray '\' in program` | Invalid character in code | Delete and retype the affected line |
-
-ENDOFFILE
-echo "Part 1 done — $(wc -l < /home/claude/lab01_part1.md) lines"
-Output
-
-Part 1 done — 141 lines
-
-
-
-
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
 
 ---
 
@@ -374,16 +361,6 @@ The small LED labeled **L** on the Arduino board should blink in sync with the S
 - Change both `delay(1000)` values to `delay(100)`. How does the LED behavior change? What does this tell you about how `delay()` controls timing?
 - Change the first delay to `delay(100)` and the second to `delay(900)`. The LED is ON for 100 ms out of every 1000 ms total — that is 10% of the time. This ratio is called a **duty cycle of 10%**. Hold this concept in your mind. It becomes the foundation of LED brightness control in Step 3.
 - What happens if you remove `pinMode(13, OUTPUT)` from `setup()` and upload again? Does the LED still blink? Why or why not?
-
-ENDOFFILE
-echo "Part 1 extended — $(wc -l < /home/claude/lab01_part1.md) lines"
-Output
-
-Part 1 extended — 365 lines
-
-
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
 
 ---
 
@@ -619,16 +596,6 @@ Task 2.2 — Mapped Values
 - Using the formula for `map()` written above, manually calculate what `map(300, 0, 1023, 0, 100)` should return. Then verify by running the sketch with the potentiometer at that ADC value.
 - Modify Task 2.2 to also display the voltage (from Task 2.1) on the same output line. The output line should show: ADC, voltage, percent, and angle — all four values.
 - What does `map(rawValue, 0, 1023, 255, 0)` do differently from `map(rawValue, 0, 1023, 0, 255)`? When would the reversed version be useful?
-
-ENDOFFILE
-echo "Part 2 written — $(wc -l < /home/claude/lab01_part1.md) lines total"
-Output
-
-Part 2 written — 601 lines total
-
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
-
 ---
 
 ## Section 8 — Step 3: Controlling LED Brightness — PWM and analogWrite()
@@ -889,15 +856,6 @@ Brightness [##########] 100%
 - Move the LED wire from pin 9 to pin 8. Pin 8 does not have the ~ symbol — it is not PWM-capable. Upload Task 3.2. What does the LED do when you turn the knob? Why? What does this tell you about `analogWrite()` on a non-PWM pin?
 - Modify Task 3.2 so that when the potentiometer is at 0%, the Serial Monitor prints "LED OFF" instead of "0%", and when at 100% it prints "LED FULL". All intermediate values print normally.
 - What would happen if you wrote `analogWrite(LED_PIN, potValue)` directly — without using `map()` first? For what range of potentiometer positions would the LED be at full brightness? Calculate this.
-
-ENDOFFILE
-echo "Step 3 done — $(wc -l < /home/claude/lab01_part1.md) lines total"
-Output
-
-Step 3 done — 863 lines total
-
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
 
 ---
 
@@ -1165,15 +1123,6 @@ Threshold: 400
 - What happens if you set `THRESHOLD` to `0`? To `1023`? What does this tell you about the importance of calibration?
 - When the LDR reading sits right at the threshold value, the LED may flicker rapidly as small fluctuations push it above and below. Search for the term **hysteresis** in the context of comparators and control systems. Describe in your own words how you would modify the `if/else` logic to eliminate this flickering using a high threshold and a low threshold instead of a single value.
 - The potentiometer is still connected. Modify Task 4.3 so that the LED does not simply turn ON or OFF in darkness, but instead dims proportionally to how dark it is — the darker the room, the brighter the LED. You will need `analogWrite()` and `map()`.
-
-ENDOFFILE
-echo "Step 4 done — $(wc -l < /home/claude/lab01_part1.md) lines total"
-Output
-
-Step 4 done — 1131 lines total
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
-
 ---
 
 ## Section 10 — Step 5: Human Input — Pull-up, Pull-down, and the Push Button
@@ -1536,17 +1485,6 @@ Press the button slowly, then rapidly. Each physical press should produce exactl
 - If you replaced the `millis()` debounce logic with `delay(50)` immediately after detecting a press, what would happen to the LDR automatic LED control running simultaneously? (Hint: `delay()` blocks everything in `loop()`.)
 - Modify Task 5.4 so that instead of toggling, the LED turns ON while the button is held and turns OFF when it is released. How does the code structure change?
 - What would happen if you removed the line `lastRawReading = currentReading;` at the end of `loop()`? Trace through the logic carefully and describe the result.
-
-ENDOFFILE
-echo "Step 5 done — $(wc -l < /home/claude/lab01_part1.md) lines total"
-Output
-
-Step 5 done — 1495 lines total
-
-
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
-
 ---
 
 ## Section 11 — Step 6: Measuring the Environment — The LM35 Temperature Sensor
@@ -1902,12 +1840,6 @@ Temp: 25.6 °C    [OK] Normal           ← finger removed, cooling down
 - Set `TEMP_HIGH` to 1.0°C less than your current room temperature. Upload and confirm the warning appears immediately. Then restore it to a realistic value.
 - Modify Task 6.3 to also use the LED as an indicator: slow blink when temperature is in the normal range, fast blink when either threshold is exceeded. You will need to use `millis()` for the blink timing instead of `delay()` — why?
 - The minimum detectable temperature change with this setup is approximately 0.49°C. If you wanted to detect changes as small as 0.1°C, what would need to change in the hardware? (Hint: the ADC resolution is fixed at 10 bits for this chip.)
-
-ENDOFFILE
-echo "Step 6 done — $(wc -l < /home/claude/lab01_part1.md) lines total"
-
-cat >> /home/claude/lab01_part1.md << 'ENDOFFILE'
-
 ---
 
 ## Section 12 — Consolidated Observation Tables
@@ -2258,10 +2190,3 @@ Formula: `Temperature (°C) = ADC × (500.0 / 1023.0)`
 | LM35 | TO-92, 10 mV/°C | Temperature sensor |
 
 ---
-
-*End of LAB 01 — Instrumentation II*
-ENDOFFILE
-echo "Final sections done — $(wc -l < /home/claude/lab01_part1.md) lines total"
-Output
-
-Final sections done — 2205 lines total
