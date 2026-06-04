@@ -1,7 +1,5 @@
----
 **Subject:** Instrumentation II | **Lab:** LAB 01
 **Title:** Blink, Button, Bright: Learning Digital and Analog Control with Arduino UNO
-**Level:** Bachelor of Engineering
 **Hardware:** Arduino UNO, 3× LEDs (red, yellow, green), 3× 220Ω resistors, 1× potentiometer (10kΩ), 1× push button, 2× 10kΩ resistors, Breadboard, Jumper Wires
 **Software:** Arduino IDE 1.8.x or 2.x
 
