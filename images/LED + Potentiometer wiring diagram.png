@@ -1,1 +1,3 @@
-a
+14. LED + Potentiometer wiring diagram (breadboard)
+Full breadboard view: potentiometer connected as in diagram 11, plus the LED with 220 Ω resistor connected from Pin 9 to GND. Both components on the same breadboard. Wires clearly color-coded.
+Make in: Wokwi or Tinkercad
