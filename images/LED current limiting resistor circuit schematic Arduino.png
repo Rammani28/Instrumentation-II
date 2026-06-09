@@ -1,3 +1,4 @@
-14. LED + Potentiometer wiring diagram (breadboard)
-Full breadboard view: potentiometer connected as in diagram 11, plus the LED with 220 Ω resistor connected from Pin 9 to GND. Both components on the same breadboard. Wires clearly color-coded.
-Make in: Wokwi or Tinkercad
+12. LED circuit diagram (schematic style)
+A simple schematic: Arduino Pin 9 → 220 Ω resistor → LED anode → LED cathode → GND. Each component labeled with its value. Current direction shown with an arrow. The voltage drops labeled: 3V across resistor, 2V across LED.
+Search term: LED current limiting resistor circuit schematic Arduino
+Or make in: Wokwi / Figma
