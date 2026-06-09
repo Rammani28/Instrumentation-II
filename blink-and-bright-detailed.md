@@ -16,6 +16,118 @@
 
 ---
 
+## Section 0 — Table of Contents
+
+---
+
+- [Section 1 — Safety and Precautions](#section-1--safety-and-precautions)
+- [Section 2 — Objectives](#section-2--objectives)
+- [Section 3 — Prerequisites](#section-3--prerequisites)
+- [Section 4 — Component Identification Guide](#section-4--component-identification-guide)
+- [Section 5 — Arduino IDE Setup](#section-5--arduino-ide-setup)
+
+---
+
+- [Section 6 — Step 1: Meeting the Arduino UNO](#section-6--step-1-meeting-the-arduino-uno) — *Board architecture, pin categories, serial communication, and your first sketch*
+  - [Background — What Is a Microcontroller?](#background--what-is-a-microcontroller)
+  - [Background — The Pins: A Complete Map](#background--the-pins--a-complete-map)
+  - [Background — Serial Communication](#background--serial-communication--talking-to-your-pc)
+  - [Task 1.1 — Observe a Floating Analog Pin](#task-11--observe-a-floating-analog-pin)
+  - [Task 1.2 — Control the Built-in LED](#task-12--control-the-built-in-led)
+
+---
+
+- [Section 7 — Step 2: Reading the Physical World — The Potentiometer and the ADC](#section-7--step-2-reading-the-physical-world--the-potentiometer-and-the-adc) — *How the ADC converts voltage to numbers, the potentiometer as a manual analog source, and the map() function*
+  - [Background — Analog-to-Digital Conversion](#background--analog-to-digital-conversion)
+  - [Background — The Potentiometer](#background--the-potentiometer)
+  - [Task 2.1 — Read Raw Potentiometer ADC Value](#task-21--read-raw-potentiometer-adc-value)
+    - [Observation Table 2 — Potentiometer Position vs ADC vs Voltage](#task-21--observation-table)
+  - [Task 2.2 — Map ADC Values to a Meaningful Range](#task-22--map-adc-values-to-a-meaningful-range)
+    - [Observation Table 3 — ADC vs Mapped Values](#task-22--observation-table)
+
+---
+
+- [Section 8 — Step 3: Controlling LED Brightness — PWM and analogWrite()](#section-8--step-3-controlling-led-brightness--pwm-and-analogwrite) — *LED electrical requirements, PWM duty cycle, and mapping potentiometer to brightness*
+  - [Background — The LED](#background--the-led)
+  - [Background — PWM (Pulse Width Modulation)](#background--pwm-pulse-width-modulation)
+  - [Task 3.1 — Confirm LED Wiring with Basic ON/OFF](#task-31--confirm-led-wiring-with-basic-onoff)
+  - [Task 3.2 — Control LED Brightness with the Potentiometer](#task-32--control-led-brightness-with-the-potentiometer)
+    - [Observation Table 4 — LED Brightness vs Potentiometer vs PWM](#task-32--observation-table)
+  - [Task 3.3 — Display Brightness with a Visual Progress Bar](#task-33--display-brightness-with-a-visual-progress-bar)
+
+---
+
+- [Section 9 — Step 4: Making It Automatic — The LDR and the Voltage Divider](#section-9--step-4-making-it-automatic--the-ldr-and-the-voltage-divider) — *Photoconductive effect, voltage divider derivation, sensor calibration, and automatic LED control*
+  - [Background — The LDR](#background--the-ldr)
+  - [Background — The Voltage Divider Applied to the LDR](#background--the-voltage-divider-applied-to-the-ldr)
+  - [Task 4.1 — Read and Display Raw LDR Values](#task-41--read-and-display-raw-ldr-values)
+    - [Observation Table 5 — LDR Light Condition vs ADC vs Voltage](#task-41--observation-table)
+  - [Task 4.2 — Calibrate: Find Your Threshold Value](#task-42--calibrate-find-your-threshold-value)
+    - [Observation Table 6 — LDR Calibration Values](#task-42--observation-table)
+  - [Task 4.3 — Automatic LED: ON in Dark, OFF in Bright](#task-43--automatic-led-on-in-dark-off-in-bright)
+    - [Observation Table 7 — LDR Auto LED Verification](#task-43--observation-table)
+
+---
+
+- [Section 10 — Step 5: Human Input — Pull-up, Pull-down, and the Push Button](#section-10--step-5-human-input--pull-up-pull-down-and-the-push-button) — *Floating pin problem, pull-down and pull-up resistors, INPUT_PULLUP, contact bounce, and millis()-based debouncing*
+  - [Background — The Floating Pin Problem](#background--the-floating-pin-problem)
+  - [Background — Pull-down Resistors](#background--pull-down-resistors)
+  - [Background — Pull-up Resistors](#background--pull-up-resistors)
+  - [Background — Arduino's Internal Pull-up](#background--arduinos-internal-pull-up)
+  - [Background — Contact Bounce](#background--contact-bounce)
+  - [Background — Software Debouncing with millis()](#background--software-debouncing-with-millis)
+  - [Task 5.1 — Observe a Floating Input Pin](#task-51--observe-a-floating-input-pin)
+    - [Observation Table 8 — Floating Pin Readings](#task-51--observation-table)
+  - [Task 5.2 — Read Button with External Pull-down](#task-52--read-button-with-external-pull-down)
+    - [Observation Table 9 — Button with Pull-down](#task-52--observation-table)
+  - [Task 5.3 — Read Button Using INPUT_PULLUP](#task-53--read-button-using-input_pullup)
+    - [Observation Table 10 — Button with INPUT_PULLUP](#task-53--observation-table)
+  - [Task 5.4 — Toggle LED with Debounced Button](#task-54--toggle-led-with-debounced-button)
+
+---
+
+- [Section 11 — Step 6: Measuring the Environment — The LM35 Temperature Sensor](#section-11--step-6-measuring-the-environment--the-lm35-temperature-sensor) — *LM35 pin identification, 10 mV/°C output characteristic, full ADC-to-temperature derivation, and threshold alerts*
+  - [Background — The LM35 Temperature Sensor](#background--the-lm35-temperature-sensor)
+  - [Background — Converting ADC to Temperature: Full Derivation](#background--converting-adc-to-temperature-full-derivation)
+  - [Task 6.1 — Read and Display Temperature](#task-61--read-and-display-temperature)
+  - [Task 6.2 — Formatted Multi-Sensor Display](#task-62--formatted-multi-sensor-display)
+    - [Observation Table 11 — All Sensors Combined](#task-62--observation-table)
+  - [Task 6.3 — Temperature Threshold Alert](#task-63--temperature-threshold-alert)
+
+---
+
+- [Section 12 — Consolidated Observation Tables](#section-12--consolidated-observation-tables)
+  - [Table 1 — Floating Pin Readings](#table-1--floating-pin-readings-task-11)
+  - [Table 2 — Potentiometer: Position vs ADC vs Voltage](#table-2--potentiometer-position-vs-adc-vs-voltage-task-21)
+  - [Table 3 — Potentiometer: ADC vs Mapped Values](#table-3--potentiometer-adc-vs-mapped-values-task-22)
+  - [Table 4 — LED Brightness: Potentiometer vs PWM vs Observation](#table-4--led-brightness-potentiometer-vs-pwm-vs-observation-task-32)
+  - [Table 5 — LDR: Light Condition vs ADC vs Voltage](#table-5--ldr-light-condition-vs-adc-vs-voltage-task-41)
+  - [Table 6 — LDR Calibration Values](#table-6--ldr-calibration-values-task-42)
+  - [Table 7 — LDR Auto LED Verification](#table-7--ldr-auto-led-verification-task-43)
+  - [Table 8 — Button: Floating Pin Readings](#table-8--button-floating-pin-readings-task-51)
+  - [Table 9 — Button with Pull-down](#table-9--button-with-pull-down-task-52)
+  - [Table 10 — Button with INPUT_PULLUP](#table-10--button-with-input_pullup-task-53)
+  - [Table 11 — LM35 Temperature: Condition vs Readings](#table-11--lm35-temperature-condition-vs-readings-task-62)
+
+- [Section 13 — Troubleshooting Guide](#section-13--troubleshooting-guide)
+
+- [Section 14 — Post-Lab Questions](#section-14--post-lab-questions)
+  - [ADC and Pins (Q1–Q8)](#adc-and-pins-q1q8)
+  - [Potentiometer and PWM (Q9–Q16)](#potentiometer-and-pwm-q9q16)
+  - [LDR and Voltage Divider (Q17–Q24)](#ldr-and-voltage-divider-q17q24)
+  - [Pull-up, Pull-down and Floating Pins (Q25–Q32)](#pull-up-pull-down-and-floating-pins-q25q32)
+  - [Debouncing (Q33–Q38)](#debouncing-q33q38)
+  - [LM35 and Temperature (Q39–Q44)](#lm35-and-temperature-q39q44)
+  - [Cross-topic and Design Questions (Q45–Q47)](#cross-topic-and-design-questions-q45q47)
+
+- [Section 15 — Quick Reference](#section-15--quick-reference)
+  - [Arduino Functions Used in This Lab](#arduino-functions-used-in-this-lab)
+  - [Formula Sheet](#formula-sheet)
+  - [Complete Circuit Pin Assignment](#complete-circuit-pin-assignment-end-of-lab)
+  - [Component Summary](#component-summary)
+
+---
+
 ## Section 1 — Safety and Precautions
 
 Read this section completely before touching any component or connecting any wire. Every precaution here exists because the described failure has happened in real labs, often more than once. None of these are formalities.
