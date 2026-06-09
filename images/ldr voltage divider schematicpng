@@ -1,0 +1,4 @@
+16. LDR voltage divider schematic
+Same as above but R1 = LDR (labeled with the photoconductive symbol — a resistor with arrows indicating light) and R2 = 10 kΩ fixed resistor. The junction connected to Arduino A1. Two states shown side by side: bright light (small R_LDR, high V_out) and darkness (large R_LDR, low V_out).
+Search term: LDR voltage divider circuit Arduino schematic
+Or make in: Wokwi / Figma
