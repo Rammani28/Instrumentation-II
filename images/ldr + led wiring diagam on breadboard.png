@@ -1,0 +1,3 @@
+17. LDR + LED wiring diagram (breadboard)
+Full breadboard view adding the LDR voltage divider circuit to the existing potentiometer + LED setup from Step 3. LDR one leg to 5V rail, other leg to a row, 10 kΩ resistor from that row to GND, wire from that row to A1.
+Make in: Wokwi or Tinkercad
