@@ -3,7 +3,7 @@ Subject: Instrumentation II
 Lab: LAB 02 (Short Form)
 Title: Controlling a DC Motor and Measuring Distance with Arduino UNO
 Level: Bachelor of Engineering
-Prerequisites: LAB 01 completed — familiarity with Arduino UNO pins, `pinMode()`, `digitalWrite()`, Serial Monitor
+Prerequisites: LAB 01 completed — familiarity with Arduino UNO pins, ` pinMode() `, ` digitalWrite() ` , Serial Monitor
 Hardware: Arduino UNO, L298N Motor Driver Module, DC Motor (6V–12V), 9V Battery + connector, HC-SR04 Ultrasonic Sensor, Breadboard, Jumper Wires(male-to-male)
 Software: Arduino IDE 1.8.x or 2.x
 Author: Er. Rammani Acharya
