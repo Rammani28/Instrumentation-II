@@ -30,7 +30,7 @@ Author: Er. Rammani Acharya
 1. Never power the motor from the Arduino's 5V pin — the motor's stall current can overheat or damage the onboard regulator. Power the motor only from the 9V battery.
 2. Always connect Arduino GND and L298N GND together (shared ground) — without it, IN1/IN2/ENA will behave unpredictably.
 3. Never set IN1 and IN2 both HIGH at the same time — this causes a shoot-through short circuit that can destroy the L298N.
-4. The L298N has built-in flyback diodes to absorb back-EMF; if you ever drive a motor without a driver module, add a diode across the motor yourself.
+<!-- 4. The L298N has built-in flyback diodes to absorb back-EMF; if you ever drive a motor without a driver module, add a diode across the motor yourself.-->
 5. Check the 9V battery's polarity every time before connecting it — reversing it on VCC/GND can destroy the L298N instantly.
 6. The HC-SR04 runs on 5V logic only — never connect it to a 3.3V board without a level shifter.
 7. Never wire HC-SR04 Trig or Echo to D0/D1 — these are the serial RX/TX lines and will conflict with uploads and the Serial Monitor. Use D2 and D3 instead.
