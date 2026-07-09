@@ -1,0 +1,308 @@
+You are an expert technical writer and embedded systems educator. Your task is
+to write a complete, detailed lab manual for a Bachelor of Engineering subject
+called Instrumentation II. The lab is titled:
+
+"From Pins to Sensors: Building a Complete Sensing and Control System with
+Arduino UNO"
+
+---
+
+## WHAT THE LAB COVERS (in this exact order):
+
+1. Introduction to the Arduino UNO board — what it is, its pins (power,
+   digital, analog, PWM), how it communicates with a PC via Serial.
+
+2. Analog-to-Digital Conversion (ADC) — how it works internally, the 10-bit
+   resolution, the conversion formula, voltage resolution, worked examples.
+
+3. Potentiometer — reading analog values with analogRead(), the map()
+   function, displaying values on Serial Monitor.
+
+4. LED brightness control — PWM concept, analogWrite(), duty cycle, using the
+   potentiometer to control LED brightness.
+
+5. LDR (Light Dependent Resistor) — photoconductive effect, voltage divider
+   circuit, calibration, automatic LED control (ON in dark, OFF in bright).
+
+6. Pull-up and pull-down resistors — the floating pin problem, external
+   pull-down, external pull-up, Arduino's internal INPUT_PULLUP, comparison
+   table of all approaches.
+
+7. Push button with debouncing — contact bounce explained, why delay() is a
+   bad debounce method, millis()-based software debouncing, toggle LED with
+   debounced button.
+
+8. LM35 temperature sensor — TO-92 pin identification, 10mV/°C output
+   characteristic, full derivation from ADC to temperature, formatted Serial
+   Monitor output, threshold alert.
+
+---
+
+## STRUCTURE AND FLOW RULES:
+
+- The manual must follow a narrative flow — each section leads naturally into
+  the next. Every new component or concept is introduced at the exact moment
+  it is needed, not before. The reader should never encounter a concept they
+  have not been prepared for.
+
+- Use a HYBRID structure:
+    - A short global theory section at the top covers ONLY foundational
+      concepts that apply across the whole lab (what a microcontroller is,
+      what the Arduino board is, serial communication basics, ADC overview).
+    - For every subsequent step, embed a "Background for this step" mini-theory
+      block immediately before the wiring and tasks. This block covers only
+      what that specific component or concept requires. The reader encounters
+      theory exactly when they need it.
+
+- Each step must follow this internal structure:
+    1. A one-paragraph intro explaining WHAT you are doing and WHY, and how it
+       connects to the previous step.
+    2. Background (inline theory) — detailed explanation of the component or
+       concept, including: what it is, how it works internally, real-world
+       use cases, relevant formulas with full derivations, worked numerical
+       examples, and any warnings specific to that component.
+    3. Component wiring — pin-by-pin wiring table. No circuit drawings needed.
+       Describe connections in plain text and a table.
+    4. Tasks — numbered as Task X.Y. Each task has: objective statement, fully
+       commented code, expected Serial Monitor output, observation table (where
+       readings are involved), and exercise questions at the end.
+
+- Each step builds on the previous one. Components from earlier steps remain
+  in the circuit — they are not removed. By the final step, the full circuit
+  is assembled and all sensors are active.
+
+---
+
+## TONE AND WRITING STYLE:
+
+- Write directly to the reader. Use "you" throughout. Never use the word
+  "student" anywhere in the document.
+
+- Do not write like a textbook. Write like a knowledgeable person standing
+  next to the reader, explaining things as they happen. The tone should be
+  clear, direct, and conversational — but technically precise.
+
+- Explain not just WHAT to do, but WHY. Every instruction should have a
+  reason behind it. Every code line that does something non-obvious should
+  have a comment explaining why, not just what.
+
+- When introducing a component, always explain: what it is, how it works
+  physically/electrically, where it is used in the real world, why it is
+  used in this specific lab, and what would happen if it were missing or
+  connected incorrectly.
+
+---
+
+## CODE REQUIREMENTS:
+
+- Every code block must be complete and uploadable as-is to an Arduino UNO.
+
+- Every line of code that is non-trivial must have an inline comment. The
+  comment must explain WHY that line exists, not just what it does.
+  Example of a BAD comment: `// read analog pin`
+  Example of a GOOD comment: `// Read A0 — returns 0 to 1023 based on
+  voltage. We use float for the next calculation to avoid integer truncation.`
+
+- Include at least 2–3 code snippets per step that build progressively —
+  start simple, add complexity.
+
+- After every code block, include the exact Expected Serial Monitor output
+  as a formatted code block, with annotations where values change due to
+  sensor interaction.
+
+- Use named constants for all pin numbers and threshold values:
+  `const int LED_PIN = 9;` not hardcoded numbers in functions.
+
+---
+
+## PRECAUTIONS SECTION:
+
+- Place this as the VERY FIRST section after the cover block, before
+  objectives.
+
+- Write each precaution as a flowing paragraph — no sub-labels or bullet
+  sub-points. Each paragraph must cover: what the risk is, why it happens
+  physically/electrically, what the consequence is if ignored, and how to
+  avoid it.
+
+- After the global precautions section, include component-specific warnings
+  inline within each step as ⚠️ Warning or 💡 Note callouts. Do not repeat
+  the full explanation — just a short reminder with a reference to the
+  precautions section.
+
+---
+
+## OBJECTIVES SECTION:
+
+- Maximum 5 objectives. Do not write them as a boring bullet list.
+
+- Write them as 2 short paragraphs that describe the arc of the lab — what
+  the reader will have built and understood by the end. Embed the key learning
+  outcomes naturally within the prose. Make it feel like a meaningful goal,
+  not a checklist.
+
+---
+
+## OBSERVATION TABLES:
+
+- Every task that involves reading sensor values must have a formatted
+  observation table for the reader to fill in.
+
+- Tables must have: condition column, measured value column, calculated/
+  converted value column, and any relevant derived quantity.
+
+- Include the formula used for any calculation below the table.
+
+---
+
+## POST-LAB QUESTIONS:
+
+- Minimum 45 questions total, grouped by topic.
+
+- Questions must be heavily weighted toward conceptual and logical reasoning.
+  Avoid pure memorization questions.
+
+- Include questions that ask the reader to: predict what happens if something
+  changes, explain why something behaves a certain way, calculate a value from
+  given data, identify a bug in a given code snippet, design a simple
+  modification to a circuit or sketch, and compare two approaches.
+
+- Label groups clearly: ADC & Pins, Potentiometer & PWM, LDR & Voltage
+  Divider, Pull-up/Pull-down & Floating Pins, Debouncing, LM35 &
+  Temperature, Cross-topic & Design Questions.
+
+---
+
+## TROUBLESHOOTING SECTION:
+
+- One comprehensive table covering all components used in the lab.
+
+- Columns: Problem observed | Likely cause | How to fix it.
+
+- Cover at least 15 distinct problems. Include problems that are subtle and
+  non-obvious, not just "LED not on → check wiring."
+
+---
+
+## QUICK REFERENCE SECTION (last section):
+
+- A table of every Arduino function used in this lab with syntax, parameters,
+  return value, and a one-line example.
+
+- A formula sheet covering: ADC conversion, voltage divider, LED resistor
+  calculation, PWM duty cycle, temperature conversion.
+
+- A pin assignment summary table for the complete circuit built across all
+  steps.
+
+---
+
+## FORMATTING:
+
+- Write in Markdown.
+
+- Use ## for section headers, ### for subsections, #### for sub-subsections.
+
+- Use tables wherever comparisons, pin mappings, or observations are involved.
+
+- Use fenced code blocks (```cpp) for all Arduino code.
+
+- Use 💡 for tips and important clarifications.
+
+- Use ⚠️ for warnings and safety notes.
+
+- Do not use bullet points for prose. Use paragraphs. Bullet points are only
+  acceptable inside tables, code comments, and the Quick Reference section.
+
+- Do not bold random phrases for emphasis. Bold is reserved for component
+  names when first introduced and for table headers.
+
+---
+
+## WHAT NOT TO DO:
+
+- Do not use the word "student" anywhere. Use "you."
+
+- Do not dump all theory at the beginning. Theory belongs inline, at the
+  moment it is needed.
+
+- Do not write objectives as a dry bullet list.
+
+- Do not write precautions as short one-liners. Each must explain the full
+  consequence and how to avoid it.
+
+- Do not write code comments that only restate the code in English. Comments
+  must add reasoning.
+
+- Do not skip the expected output after a code block. Every task must show
+  what the Serial Monitor should display.
+
+- Do not include a Conclusion section.
+
+- Do not include any circuit diagrams or ASCII art for circuits. Wiring is
+  described only through pin-by-pin tables and plain text descriptions.
+
+---
+
+## COVER BLOCK (include exactly this at the top):
+
+Subject: Instrumentation II
+Lab: LAB 01
+Title: From Pins to Sensors: Building a Complete Sensing and Control System
+Level: Bachelor of Engineering
+Prerequisites: Basic electronics (Ohm's Law, voltage divider), Basic C/C++
+Hardware: Arduino UNO, Potentiometer, LED (with 220Ω resistor), LDR,
+Push Button, LM35, 10kΩ resistors (×2), Breadboard, Jumper Wires
+Software: Arduino IDE 1.8.x or 2.x
+
+
+SECTION 0 — TABLE OF CONTENTS
+
+Immediately after the cover block and before Section 1 (Safety and Precautions),
+generate a Section 0 titled "Table of Contents".
+
+The TOC must follow these rules:
+
+Structure and depth: The TOC must be a nested Markdown list. It must include
+every section, every step, every background block, every task, every exercise
+block, and every observation table in the document. It must not be shallow —
+a reader should be able to find any specific part of the document from the TOC
+alone without having to scan the document body.
+
+Clickable links: Every entry must be a Markdown anchor link in the format
+[Entry Name](#anchor). Anchors are generated from the heading text by
+converting to lowercase, replacing spaces with hyphens, and removing special
+characters. For example, ## Section 6 — Step 1: Meeting the Arduino UNO
+becomes #section-6--step-1-meeting-the-arduino-uno.
+
+One-line descriptions on Step entries only: Each Step entry (Section 6
+through the final step section) must have a short italicised one-line
+description appended after the link — separated by a dash. This description
+summarises what the step covers in 8–12 words. Example:
+
+
+Section 7 — Step 2: The Potentiometer and the ADC
+— How the ADC works, reading analog values, and using map()
+
+
+Background blocks, tasks, and tables are listed as sub-entries under their
+parent step with no description — just the clickable name.
+
+Horizontal dividers: Place a --- divider line between each Step section
+in the TOC to visually separate the build stages. The pre-step sections
+(Sections 1–5) are grouped together above the first divider. The post-step
+sections (consolidated tables, troubleshooting, questions, quick reference)
+are grouped together below the final divider.
+
+No page numbers, no emoji, no bold formatting inside the TOC entries
+themselves. Keep it clean and professional.
+
+Observation tables listed twice: Each observation table appears once under
+its parent task as a sub-entry, and once again in the consolidated Section 12
+list. Both entries must be present.
+
+Now write the complete lab manual. Do not summarize or shorten any section.
+Write every section in full detail. The document should be long enough that
+a reader completing it has everything they need — they should never have to
+refer to any external resource except for circuit diagrams (which will be
+provided separately).
