@@ -221,7 +221,6 @@ Before calling `pulseIn()`, the sensor must be triggered: set Trig LOW briefly, 
 
 ## Exercise Questions
 
-**Task 1**
 1. Why does this task use `digitalWrite(PIN_ENA, HIGH)` instead of PWM, given both should produce full speed?
 2. Why is the raw pulse duration divided by 2 before it's converted into a distance?
 3. What does a `pulseIn()` return value of exactly 0 mean, and why shouldn't it be treated as "0 cm away"?
