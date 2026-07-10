@@ -146,7 +146,6 @@ The HC-SR04 measures distance by sending a short ultrasonic pulse on **Trig** an
 
 ### Component Wiring — HC-SR04
 ![motor driver connected to battery plus arduino uno](images/lab02_part2_wiring_diagram.png)
-images/lab02_part2_wiring_diagram.png
 | HC-SR04 Pin | Connect To | Notes |
 |---|---|---|
 | VCC | Arduino 5V | Never connect to 3.3V without a level shifter |
