@@ -53,6 +53,8 @@ A DC motor works when we supply voltage across it — this creates a magnetic fi
 
 On the L298N, **ENA** enables the motor (and can control its speed), while **IN1** and **IN2** control its direction:
 
+![Pinout diagram of L298n](images/L298N-Motor-Driver-Module-Pinout.png)
+
 | IN1 | IN2 | Motor behavior |
 |---|---|---|
 | HIGH | LOW | Rotates forward |
@@ -61,6 +63,7 @@ On the L298N, **ENA** enables the motor (and can control its speed), while **IN1
 | HIGH | HIGH | **Never do this** — damages the driver |
 
 ### Component Wiring — L298N Logic Side
+![motor driver connected to battery plus arduino uno](images/lab02_part1_wiring_diagram.png)
 
 | L298N Pin | Connect To | Notes |
 |---|---|---|
@@ -142,7 +145,8 @@ The motor is powered entirely by the 9V battery through the L298N — the Arduin
 The HC-SR04 measures distance by sending a short ultrasonic pulse on **Trig** and timing how long it takes for the echo to return on **Echo**. That round-trip time, combined with the speed of sound, gives the distance to the nearest object in front of the sensor.
 
 ### Component Wiring — HC-SR04
-
+![motor driver connected to battery plus arduino uno](images/lab02_part2_wiring_diagram.png)
+images/lab02_part2_wiring_diagram.png
 | HC-SR04 Pin | Connect To | Notes |
 |---|---|---|
 | VCC | Arduino 5V | Never connect to 3.3V without a level shifter |
