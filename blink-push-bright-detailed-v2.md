@@ -414,7 +414,6 @@ Serial.println(" V");   // println() here ends the line and starts a new one.
 
 void setup() {
 // Start serial so we can see the output. in the line below. use baud rate 9600
-  <!-- Serial.begin(9600); -->                        
 
   Serial.println("Task 1.1 — Floating Pin");
   Serial.println("Pin A0 is unconnected. Watch the readings.");
@@ -422,17 +421,17 @@ void setup() {
 }
 
 void loop() {
-// initialize an int typed variable and store the value read from pin A0 to that variable in the line below:
-  <!--int reading = analogRead(A0);-->               // Read pin A0 — nothing is connected.
+// initialize an int typed variable name 'reading' and store the value read from pin A0 to that variable in the line below:
                                               // The ADC will sample whatever voltage
                                               // the pin happens to see at this moment.
 
   //print the reading in the line below:
-  <!--Serial.print("A0: ");
+
   Serial.println(reading);                    // Print the raw ADC value.
-  delay(300);                                 // 300ms between readings.-->
+                                              // 300ms between readings.-->
 
   //delay for 300 ms in the line below
+
 }
 ```
 
@@ -465,23 +464,25 @@ The numbers change randomly on every reading. This is the expected behavior of a
 // This is the simplest possible sketch and confirms the board is functional.
 
 void setup() {
-  pinMode(13, OUTPUT);   // Configure D13 as an output. Without this, the pin
+//configure pin 13 as output in the line below
+                         // Configure D13 as an output. Without this, the pin
                          // is in INPUT mode by default and digitalWrite() has
                          // no visible effect on the LED.
-  Serial.begin(9600);
-  Serial.println("Task 1.2 — Built-in LED Blink");
+//begin serial monitor at baud rate 9600
+
+//Serial.println("Task 1.2 — Built-in LED Blink");
 }
 
 void loop() {
+//send high signal on pin 13 in the line below
   digitalWrite(13, HIGH);        // Drive D13 to 5V — current flows through the
                                  // onboard resistor and LED, lighting it up.
   Serial.println("LED: ON");
-  delay(1000);                   // Pause for 1000 ms = 1 second.
-                                 // During this pause, the sketch does nothing else.
 
-  digitalWrite(13, LOW);         // Drive D13 to 0V — no current flows, LED is off.
-  Serial.println("LED: OFF");
-  delay(1000);
+                                 // Pause for 1000 ms = 1 second. in this line
+                                 // During this pause, the sketch does nothing else.
+//send low signal to pin 13 below, then print led off then delay below. in three lines
+
 }
 ```
 
