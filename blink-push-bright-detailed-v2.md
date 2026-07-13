@@ -413,21 +413,26 @@ Serial.println(" V");   // println() here ends the line and starts a new one.
 // a pin in this undefined state if the circuit is not designed carefully.
 
 void setup() {
-  Serial.begin(9600);                         // Start serial so we can see the output.
+// Start serial so we can see the output. in the line below. use baud rate 9600
+  <!--Serial.begin(9600);-->                        
+
   Serial.println("Task 1.1 — Floating Pin");
   Serial.println("Pin A0 is unconnected. Watch the readings.");
   Serial.println("-------------------------------------------");
 }
 
 void loop() {
-  int reading = analogRead(A0);               // Read pin A0 — nothing is connected.
+// initialize an int typed variable and store the value read from pin A0 to that variable in the line below:
+  <!--int reading = analogRead(A0);-->               // Read pin A0 — nothing is connected.
                                               // The ADC will sample whatever voltage
                                               // the pin happens to see at this moment.
 
-  Serial.print("A0: ");
+  //print the reading in the line below:
+  <!--Serial.print("A0: ");
   Serial.println(reading);                    // Print the raw ADC value.
+  delay(300);                                 // 300ms between readings.-->
 
-  delay(300);                                 // 300ms between readings.
+  //delay for 300 ms in the line below
 }
 ```
 
