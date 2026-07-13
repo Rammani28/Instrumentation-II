@@ -414,7 +414,7 @@ Serial.println(" V");   // println() here ends the line and starts a new one.
 
 void setup() {
 // Start serial so we can see the output. in the line below. use baud rate 9600
-  <!--Serial.begin(9600);-->                        
+  <!-- Serial.begin(9600); -->                        
 
   Serial.println("Task 1.1 — Floating Pin");
   Serial.println("Pin A0 is unconnected. Watch the readings.");
